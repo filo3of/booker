@@ -1,0 +1,24 @@
+{
+  "name": "booker",
+  "version": "1.0.0",
+  "description": "Cypress automation tests with page object modal approach.",
+  "main": "index.js",
+  "scripts": {
+    "cy:open": "npx cypress open --e2e --browser chrome",
+    "cy:run": "npx cypress run --e2e --browser chrome --headless",
+    "cy:smoke": "npx cypress open --e2e --browser chrome --env grepTags=@smoke"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/filo3of/booker.git"
+  },
+  "author": "Marko Bogicevic",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/filo3of/booker/issues"
+  },
+  "homepage": "https://github.com/filo3of/booker#readme",
+  "devDependencies": {
+    "cypress": "^12.0.2"
+  }
+}
