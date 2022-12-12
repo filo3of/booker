@@ -82,6 +82,8 @@ npm run cy:run
 
 Latest run status:
 
+[![CircleCI](https://circleci.com/gh/filo3of/booker.svg?style=svg)](https://circleci.com/gh/filo3of/booker)
+
 ## License
 
 This project is licensed under the terms of the [MIT license](/LICENSE).
