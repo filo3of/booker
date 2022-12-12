@@ -19,6 +19,8 @@
   },
   "homepage": "https://github.com/filo3of/booker#readme",
   "devDependencies": {
+    "@cypress/grep": "^3.1.2",
+    "@faker-js/faker": "^7.6.0",
     "cypress": "^12.0.2"
   }
 }

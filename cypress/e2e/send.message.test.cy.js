@@ -1,7 +1,7 @@
 import HomePage from "../POM/page/home.page";
 import Data from "../support/data";
 
-describe("Send a message", () => {
+describe("Send a message", { tags: "@smoke" }, () => {
   it("Check room availability", () => {
     HomePage.openHomePage(Data.device)
       .enterName(Data.name)
