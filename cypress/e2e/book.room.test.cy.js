@@ -12,7 +12,11 @@ describe("Book a room", () => {
 
     cy.get("button").contains("Let me hack!").click();
 
-    cy.get("button").contains("Book this room").scrollIntoView().click();
+    cy.get("button")
+      .contains("Book this room")
+      .first()
+      .scrollIntoView()
+      .click();
 
     cy.get("button").contains("Cancel").should("be.visible");
 
