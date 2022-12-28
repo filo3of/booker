@@ -23,3 +23,15 @@
 //
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
+
+Cypress.Commands.add("openHomePage", (device) => {
+  cy.viewport(device);
+
+  cy.visit("/");
+
+  cy.get(".hotel-logoUrl").should("be.visible");
+
+  cy.url("eq", "https://automationintesting.online/");
+
+  cy.get("button").contains("Let me hack!").click();
+});
