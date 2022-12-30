@@ -4,13 +4,13 @@ orbs:
 executors:
   with-chrome:
     docker:
-      - image: 'cypress/browsers:node16.16.0-chrome107-ff107-edge'
+      - image: "cypress/browsers:node16.16.0-chrome107-ff107-edge"
 workflows:
   build:
     jobs:
       - cypress/run:
           executor: with-chrome
           browser: chrome
-            post-steps:
-              - store_artifacts:
-                  path: mochawesome-report
+          post-steps:
+            - store_artifacts:
+                path: mochawesome-report
