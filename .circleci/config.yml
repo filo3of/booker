@@ -9,8 +9,8 @@ workflows:
   build:
     jobs:
       - cypress/run:
-          command: npm run cy:run
-          command: npm run report
+          - run: npm run cy:run
+          - run: npm run report
           executor: with-chrome
           browser: chrome
           post-steps:
