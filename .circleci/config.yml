@@ -9,8 +9,10 @@ workflows:
   build:
     jobs:
       - cypress/run:
+          command: npm run cy:run
           executor: with-chrome
           browser: chrome
           post-steps:
+            command: npm run report
             - store_artifacts:
                 path: mochawesome-report
