@@ -9,11 +9,13 @@ workflows:
   build:
     jobs:
       - cypress/run:
-          command: npx cypress run --e2e --browser chrome --headless
-          command: npx mochawesome-merge 'cypress/mochawesome/*.json' > mochawesome.json 
-          command: npx marge mochawesome.json
+          executor: with-chrome
+          browser: chrome
+          store_artifacts: true
           executor: with-chrome
           browser: chrome
           post-steps:
             - store_artifacts:
                 path: mochawesome-report
+            - store_test_results:
+                path: cypress/results
