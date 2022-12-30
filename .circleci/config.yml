@@ -12,8 +12,6 @@ workflows:
           executor: with-chrome
           browser: chrome
           store_artifacts: true
-          executor: with-chrome
-          browser: chrome
           post-steps:
             - store_artifacts:
                 path: mochawesome-report
