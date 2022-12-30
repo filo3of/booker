@@ -63,7 +63,12 @@ class HomePage {
     return this;
   }
 
-  verify_that_message_is_sent() {
+  verify_that_message_is_sent(name, subject) {
+    cy.get("h2").contains("Thanks for getting in touch ").should("be.visible");
+
+    cy.get("h2").contains(name).should("be.visible");
+
+    cy.get("p").contains(subject).should("be.visible");
     return this;
   }
 }

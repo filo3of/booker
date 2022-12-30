@@ -11,6 +11,20 @@ module.exports = defineConfig({
     openMode: 0,
   },
 
+  reporter: "cypress-multi-reporters",
+  reporterOptions: {
+    reporterEnabled: "mocha-junit-reporter, mochawesome",
+    mochawesomeReporterOptions: {
+      reportDir: "cypress/mochawesome",
+      overwrite: false,
+      html: false,
+      json: true,
+    },
+    mochaJunitReporterReporterOptions: {
+      mochaFile: "cypress/results/results-[hash].xml",
+    },
+  },
+
   env: {
     grepFilterSpecs: true,
     grepOmitFiltered: true,

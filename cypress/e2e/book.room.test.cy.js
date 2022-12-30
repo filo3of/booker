@@ -1,6 +1,6 @@
 /// <reference types="cypress" />
 
-describe("Book a room", () => {
+describe("Book a room", { tags: "@usual" }, () => {
   it("Book a new room", () => {
     cy.viewport("macbook-16");
 

@@ -1,7 +1,7 @@
 /// <reference types="cypress" />
 import Data from "../support/data";
 
-describe("Book a room", () => {
+describe("Book a room", { tags: ["@api", "@usual"] }, () => {
   it("Book a new room", () => {
     cy.openHomePage(Data.laptopView);
 
@@ -15,13 +15,17 @@ describe("Book a room", () => {
         totalprice: Data.randomPrice,
         depositpaid: true,
         bookingdates: {
-          checkin: "2018-01-01",
-          checkout: "2019-01-01",
+          checkin: Data.todayDate,
+          checkout: Data.futureDate,
         },
         additionalneeds: "Breakfast",
       },
     }).then((resp) => {
       expect(resp.status).to.eq(200);
+
+      expect(resp.body.booking.firstname).to.eq(Data.name);
+
+      expect(resp.body.booking.lastname).to.eq(Data.lastName);
 
       cy.log("------------------------");
 
@@ -35,18 +39,23 @@ describe("Book a room", () => {
 
       cy.log("Last Name: " + resp.body.booking.lastname);
 
-      let bookingID = resp.body.bookingid.toString();
+      cy.log("Today date: " + Data.todayDate);
+
+      cy.log("Future date: " + Data.futureDate);
 
       cy.log("------------------------");
 
-      //cy.wait(3000);
+      let bookingID = resp.body.bookingid.toString();
 
       cy.request(
         "GET",
         "https://restful-booker.herokuapp.com/booking/" + bookingID
       ).then((resp) => {
-        // redirect status code is 302
         expect(resp.status).to.eq(200);
+
+        expect(Data.name).to.equal(resp.body.firstname);
+
+        expect(Data.lastName).to.equal(resp.body.lastname);
 
         cy.log("------------------------");
 
@@ -59,8 +68,6 @@ describe("Book a room", () => {
         cy.log("Last Name: " + resp.body.lastname);
 
         cy.log("------------------------");
-
-        expect(Data.name).to.equal(resp.body.firstname);
       });
     });
   });
