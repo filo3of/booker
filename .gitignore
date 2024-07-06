@@ -1,0 +1,16 @@
+# Dependency directory
+node_modules
+cypress/videos
+cypress/screenshots
+cypress/results
+cypress/reports
+cypress/downloads
+mochawesome-report
+mochawesome
+mochawesome-report
+mochawesome.json
+# Apple file 
+.DS_Store
+cypress/.DS_Store
+# VS code settings
+.vscode
