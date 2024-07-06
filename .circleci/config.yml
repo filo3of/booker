@@ -1,19 +1,10 @@
 version: 2.1
 orbs:
-  cypress: cypress-io/cypress@3.3.1
-executors:
-  with-chrome:
-    docker:
-      - image: "cypress/browsers:node-20.12.0-chrome-123.0.6312.86-1-ff-124.0.2-edge-123.0.2420.65-1"
+  cypress: cypress-io/cypress@3
 workflows:
-  build:
+  test:
     jobs:
       - cypress/run:
-          executor: with-chrome
-          browser: chrome
-          store_artifacts: true
-          post-steps:
-            - store_artifacts:
-                path: mochawesome-report/mochawesome.html
-            - store_test_results:
-                path: cypress/results
+          install-browsers: true
+          start-command: "npm run start"
+          cypress-command: "npx cypress run --e2e --browser chrome --headless"

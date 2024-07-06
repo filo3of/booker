@@ -29,8 +29,8 @@
   },
   "homepage": "https://github.com/filo3of/booker#readme",
   "devDependencies": {
-    "@4tw/cypress-drag-drop": "^2.2.3",
-    "@cypress/grep": "^3.1.2",
+    "@4tw/cypress-drag-drop": "^2.2.5",
+    "@cypress/grep": "^3.1.5",
     "@faker-js/faker": "^7.6.0",
     "cypress": "^13.13.0",
     "cypress-multi-reporters": "^1.6.2",
